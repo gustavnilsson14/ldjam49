@@ -7,6 +7,7 @@ public class MoveLogic : InterfaceLogicBase
 {
     public static MoveLogic I;
     public List<IMover> movers = new List<IMover>();
+    public LayerMask groundLayer;
 
     protected override void OnInstantiate(GameObject newInstance, IBase newBase)
     {
@@ -38,22 +39,47 @@ public class MoveLogic : InterfaceLogicBase
     public void Update()
     {
         movers.ForEach(x => Move(x));
+        movers.ForEach(x => HandleFallSpeed(x));
+    }
+
+    private void HandleFallSpeed(IMover mover)
+    {
+        if (!mover.GetGameObject().TryGetComponent(out Rigidbody rb))
+            return;
+        if (rb.velocity.y > 0)
+            return;
+        rb.velocity += new Vector3(0, rb.velocity.y, 0) * Time.deltaTime * 5;
     }
 
     private void Move(IMover mover)
     {
-        Debug.Log("yay");
         if (!mover.GetGameObject().TryGetComponent<Rigidbody>(out Rigidbody rb))
             return;
-        Debug.Log(mover.GetSpeed());
+        if (!IsGrounded(mover))
+            return;
+        rb.velocity = GetVelocity(mover, rb);
+    }
 
-        rb.MovePosition(rb.transform.position + (mover.movementVector * mover.GetSpeed() * Time.deltaTime)); 
+    private Vector3 GetVelocity(IMover mover, Rigidbody rb)
+    {
+        if (mover.movementVector == Vector3.zero)
+            return new Vector3(0,rb.velocity.y,0);
+        return rb.velocity + (mover.movementVector * mover.GetAcceleration() * Time.deltaTime);
+    }
+
+    public bool IsGrounded(IMover mover) {
+        Transform transform = mover.GetGameObject().transform;
+        Vector3 overlapCenter = transform.position + Vector3.down;
+        if (Physics.OverlapBox(overlapCenter, transform.localScale / 2, transform.rotation, groundLayer).Length == 0)
+            return false;
+        return true;
     }
 }
 
 public interface IMover : IAnimated
 {
-    float GetSpeed();
+    float GetMaxSpeed();
+    float GetAcceleration();
     Vector3 movementVector { get; set; }
     MoveEvent OnMove { get; set; }
 }
