@@ -60,6 +60,7 @@ public class InputLogic : InterfaceLogicBase
         foreach (IInputReciever inputReciever in inputRecievers)
         {
             HandleJumperInput(inputReciever);
+            HandleMoverInput(inputReciever);
         }
     }
 
@@ -75,6 +76,20 @@ public class InputLogic : InterfaceLogicBase
             JumpLogic.I.Jump(inputReciever as IJumper);
         }
 
+    }
+
+    private void HandleMoverInput(IInputReciever inputReciever)
+    {
+        if (!(inputReciever is IMover))
+            return;
+
+        Vector3 movementVector = Vector3.zero;
+        foreach (AxisMapping axisMapping in inputReciever.GetAxisMappings().FindAll(x => x.axisType == AxisType.MOVE_X))
+        {
+            movementVector += new Vector3(Input.GetAxis(axisMapping.axisName),0,0);
+        }
+
+        (inputReciever as IMover).movementVector = movementVector;
     }
 
     private bool GetInput(InputMapping inputMapping)

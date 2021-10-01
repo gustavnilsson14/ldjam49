@@ -19,6 +19,9 @@ public class JumpLogic : InterfaceLogicBase
 
     private void InitJumper(IJumper jumper)
     {
+        if (jumper == null)
+            return;
+
         jumper.onJump = new JumpEvent();
     }
 
