@@ -28,9 +28,17 @@ public class JumpLogic : InterfaceLogicBase
     public void Jump(IJumper jumper) {
         if (!jumper.GetGameObject().TryGetComponent(out Rigidbody rigidbody))
             return;
+        if (!CheckGrounded(jumper))
+            return;
         rigidbody.velocity += Vector3.up * jumper.GetJumpForce();
     }
 
+    private bool CheckGrounded(IJumper jumper)
+    {
+        if (!(jumper is IMover))
+            return true;
+        return MoveLogic.I.IsGrounded(jumper as IMover);
+    }
 }
 public interface IJumper : IAnimated
 {
