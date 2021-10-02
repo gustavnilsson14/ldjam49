@@ -49,17 +49,32 @@ public class MoveLogic : InterfaceLogicBase
             return;
         if (rigidbody.velocity.y > 0)
             return;
-        rigidbody.velocity += new Vector3(0, rigidbody.velocity.y, 0) * Time.deltaTime * 5;
+        if (mover.isGrounded)
+        {
+            mover.gravityMultiplier = 0;
+            return;
+        }
+
+        mover.gravityMultiplier += 1.5f;
+        rigidbody.AddForce(Vector3.down * mover.gravityMultiplier);
     }
 
     private void Move(IMover mover)
     {
         if (!mover.GetGameObject().TryGetComponent<Rigidbody>(out Rigidbody rigidbody))
             return;
+        if (mover.isGrounded)
+            mover.direction = mover.movementVector;
+        if (!mover.isGrounded)
+        {
+            mover.direction += mover.movementVector * mover.GetMoveSpeedAir();
+            mover.direction = Vector3.ClampMagnitude(mover.direction, 1);
+        }
 
-        Vector3 move = mover.movementVector * mover.GetMoveSpeed() * Time.fixedDeltaTime;
+        Vector3 move = mover.direction * mover.GetMoveSpeed() * Time.fixedDeltaTime;
         rigidbody.MovePosition(mover.GetGameObject().transform.position + move);
     }
+
 
     public void CheckGrounded(IMover mover) {
         mover.isGrounded = false;
@@ -88,12 +103,17 @@ public interface IMover : IAnimated
 {
     float GetSlopeLimit();
     float GetMoveSpeed();
+    float GetMoveSpeedAir();
     bool GetAllowJump();
     bool isGrounded { get; set; }
     float GetJumpSpeed();
 
     Vector3 movementVector { get; set; }
     MoveEvent OnMove { get; set; }
+
+    float gravityMultiplier { get; set; }
+    Vector3 direction { get; set; }
+
 }
 
 public class MoveEvent : AnimationEvent<IMover>
