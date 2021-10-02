@@ -28,17 +28,13 @@ public class JumpLogic : InterfaceLogicBase
     public void Jump(IJumper jumper) {
         if (!jumper.GetGameObject().TryGetComponent(out Rigidbody rigidbody))
             return;
-        if (!CheckGrounded(jumper))
+        if (!(jumper as IMover).isGrounded || !(jumper as IMover).GetAllowJump())
             return;
-        rigidbody.velocity += Vector3.up * jumper.GetJumpForce();
+ 
+        rigidbody.AddForce(transform.up * (jumper as IMover).GetJumpSpeed(), ForceMode.VelocityChange);
+        
     }
 
-    private bool CheckGrounded(IJumper jumper)
-    {
-        if (!(jumper is IMover))
-            return true;
-        return MoveLogic.I.IsGrounded(jumper as IMover);
-    }
 }
 public interface IJumper : IAnimated
 {
