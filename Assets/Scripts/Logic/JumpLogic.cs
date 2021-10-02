@@ -22,7 +22,7 @@ public class JumpLogic : InterfaceLogicBase
     {
         if (jumper == null)
             return;
-        jumper.onJump = new JumpEvent(jumper, "Jump");
+        jumper.onJump = new JumpEvent(jumper, "Jump", jumper.GetJumpSound());
         jumper.onLand = new JumpEvent(jumper, "Land");
     }
     private void JumperInternalListeners(IJumper jumper)
@@ -58,10 +58,11 @@ public interface IJumper : IAnimated
     JumpEvent onJump { get; set; }
     JumpEvent onLand { get; set; }
     float GetJumpSpeed();
+    AudioSource GetJumpSound();
 }
 public class JumpEvent : AnimationEvent<IJumper>
 {
-    public JumpEvent(IBase b = null, string name = "default") : base(b, name)
+    public JumpEvent(IBase b = null, string name = "default", AudioSource audioSource = null) : base(b, name, audioSource)
     {
     }
     public override bool TryGetParameterType(out AnimatorControllerParameterType parameterType)
