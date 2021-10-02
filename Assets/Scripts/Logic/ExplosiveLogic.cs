@@ -60,6 +60,7 @@ public class ExplosiveLogic : InterfaceLogicBase
             Debug.Log(collider.gameObject.name);
         }
         explosive.exploded = true;
+        Destroy(explosive.GetGameObject());
     }
 
 }
