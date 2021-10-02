@@ -23,6 +23,8 @@ public class Player : BehaviourBase, IInputReciever, IMover, IJumper
     public Vector3 previousHorizontalVelocity { get; set; }
     public MoveEvent OnStartMove { get; set; }
     public MoveEvent OnStopMove { get; set; }
+    public JumpEvent onLand { get; set; }
+    public MoveEvent OnLand { get; set; }
 
     public float GetSlopeLimit() => slopeLimit;
     public float GetMoveSpeed() => moveSpeed;

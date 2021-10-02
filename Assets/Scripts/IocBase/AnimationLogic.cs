@@ -11,6 +11,19 @@ public class AnimationLogic : InterfaceLogicBase
 
     private bool debug = true;
 
+    protected override void OnInstantiate(GameObject newInstance, IBase newBase)
+    {
+        base.OnInstantiate(newInstance, newBase);
+        InitAnimated(newBase as IAnimated);
+    }
+
+    private void InitAnimated(IAnimated animated)
+    {
+        if (animated == null) 
+            return;
+        animated.animator = animated.GetGameObject().GetComponent<Animator>();
+    }
+
     public void RunAnimationEvent(Animator animator, string animationKey, bool useParameterType, AnimatorControllerParameterType parameterType) {
         if (!useParameterType)
         {
@@ -61,7 +74,7 @@ public class AnimationLogic : InterfaceLogicBase
 
     internal void RunAnimationEvent<T0, T1, T2, T3>(AnimationEvent<T0, T1, T2, T3> animationEvent)
     {
-        bool useParameterType = animationEvent.TryGetParameterType(out AnimatorControllerParameterType parameterType)
+        bool useParameterType = animationEvent.TryGetParameterType(out AnimatorControllerParameterType parameterType);
         string parameterName = $"{animationEvent.GetType().ToString()}_{animationEvent.GetName()}";
         LocalDebug(parameterName);
         RunAnimationEvent(animationEvent.animator, parameterName, useParameterType, parameterType);

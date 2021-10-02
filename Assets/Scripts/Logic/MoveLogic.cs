@@ -34,6 +34,7 @@ public class MoveLogic : InterfaceLogicBase
 
         mover.OnStartMove = new MoveEvent(mover, "StartMove");
         mover.OnStopMove = new MoveEvent(mover, "StopMove");
+        mover.OnLand = new MoveEvent();
         movers.Add(mover);
     }
 
@@ -41,7 +42,16 @@ public class MoveLogic : InterfaceLogicBase
     {
         movers.ForEach(x => CheckGrounded(x));
         movers.ForEach(x => Move(x));
+        movers.ForEach(x => HandleDirection(x));
         movers.ForEach(x => MultiplyFallSpeed(x));
+    }
+
+    private void HandleDirection(IMover mover)
+    {
+        if (mover.movementVector.x > 0)
+            mover.animator.SetInteger("Direction", 1);
+        if (mover.movementVector.x < 0)
+            mover.animator.SetInteger("Direction", -1);
     }
 
     private void MultiplyFallSpeed(IMover mover)
@@ -72,7 +82,6 @@ public class MoveLogic : InterfaceLogicBase
             mover.direction += mover.movementVector * mover.GetMoveSpeedAir();
             mover.direction = Vector3.ClampMagnitude(mover.direction, 1);
         }
-
         Vector3 currentMovement = mover.direction * mover.GetMoveSpeed() * Time.fixedDeltaTime;
         HandleStartStop(mover, currentMovement);
         rigidbody.MovePosition(mover.GetGameObject().transform.position + currentMovement);
@@ -107,6 +116,16 @@ public class MoveLogic : InterfaceLogicBase
                     mover.isGrounded = true;
             }
         }
+        if (mover.animator.GetBool("IsGrounded") == mover.isGrounded)
+            return;
+        mover.animator.SetBool("IsGrounded", mover.isGrounded);
+        mover.animator.ResetTrigger("MoveEvent_StopMove");
+        mover.animator.ResetTrigger("MoveEvent_StartMove");
+        if (!mover.isGrounded)
+            return;
+        mover.OnLand.Invoke(mover);
+        if (mover.previousHorizontalVelocity != Vector3.zero)
+            mover.animator.SetTrigger("MoveEvent_StartMove");
     }
 }
 
@@ -115,14 +134,13 @@ public interface IMover : IAnimated
     float GetSlopeLimit();
     float GetMoveSpeed();
     float GetMoveSpeedAir();
-    bool GetAllowJump();
     bool isGrounded { get; set; }
-    float GetJumpSpeed();
 
     Vector3 previousHorizontalVelocity { get; set; }
     Vector3 movementVector { get; set; }
     MoveEvent OnStartMove { get; set; }
     MoveEvent OnStopMove { get; set; }
+    MoveEvent OnLand { get; set; }
     float gravityMultiplier { get; set; }
     Vector3 direction { get; set; }
 
