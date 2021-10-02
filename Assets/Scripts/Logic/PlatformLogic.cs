@@ -41,7 +41,6 @@ public class PlatformLogic : InterfaceLogicBase
         if (!other.gameObject.TryGetComponent(out Rigidbody rigidbody))
             return;
 
-        Debug.Log("triggered!");
         rigidbody.AddForce(Vector3.up * bouncy.GetBounciness(), ForceMode.VelocityChange);
     }
 }
