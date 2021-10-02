@@ -19,7 +19,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: {x: -68.482, y: 47.46, z: 2.782}
+        value: {x: 70.546, y: 90, z: 90}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -29,7 +29,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: wizard/Armature/R.arm.001/R.arm.002
+    path: Container/wizard/Armature/Bone
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -45,7 +45,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: wizard/Armature/L.arm.001/L.arm.002
+    path: Container/wizard/Armature/L.arm.001/L.arm.002
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -61,7 +61,39 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: wizard/Armature/L.arm.001/L.arm.002/L.arm.003
+    path: Container/wizard/Armature/L.arm.001/L.arm.002/L.arm.003
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: {x: 0, y: 0, z: 0}
+        inSlope: {x: 0, y: 0, z: 0}
+        outSlope: {x: 0, y: 0, z: 0}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0, y: 0.33333334, z: 0.33333334}
+        outWeight: {x: 0, y: 0.33333334, z: 0.33333334}
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: Container/wizard/Armature/L.arm.001/L.arm.002/L.arm.003/L.arm.004
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: {x: -68.482, y: 47.46, z: 2.782}
+        inSlope: {x: 0, y: 0, z: 0}
+        outSlope: {x: 0, y: 0, z: 0}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0, y: 0.33333334, z: 0.33333334}
+        outWeight: {x: 0, y: 0.33333334, z: 0.33333334}
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: Container/wizard/Armature/R.arm.001/R.arm.002
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -77,39 +109,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: wizard/Armature/R.arm.001/R.arm.002/R.arm.003
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: {x: 0, y: 0, z: 0}
-        inSlope: {x: 0, y: 0, z: 0}
-        outSlope: {x: 0, y: 0, z: 0}
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: {x: 0, y: 0.33333334, z: 0.33333334}
-        outWeight: {x: 0, y: 0.33333334, z: 0.33333334}
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    path: wizard/Armature/L.arm.001/L.arm.002/L.arm.003/L.arm.004
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: {x: 70.546, y: 90, z: 90}
-        inSlope: {x: 0, y: 0, z: 0}
-        outSlope: {x: 0, y: 0, z: 0}
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: {x: 0, y: 0.33333334, z: 0.33333334}
-        outWeight: {x: 0, y: 0.33333334, z: 0.33333334}
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    path: wizard/Armature/Bone
+    path: Container/wizard/Armature/R.arm.001/R.arm.002/R.arm.003
   m_PositionCurves: []
   m_ScaleCurves: []
   m_FloatCurves: []
@@ -122,42 +122,42 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 4215468526
+      path: 3945774220
       attribute: 4
       script: {fileID: 0}
       typeID: 4
       customType: 4
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 410994065
+      path: 1055912751
       attribute: 4
       script: {fileID: 0}
       typeID: 4
       customType: 4
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 473069129
+      path: 882822275
       attribute: 4
       script: {fileID: 0}
       typeID: 4
       customType: 4
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 1182423560
+      path: 748450364
       attribute: 4
       script: {fileID: 0}
       typeID: 4
       customType: 4
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 2684035951
+      path: 3721545552
       attribute: 4
       script: {fileID: 0}
       typeID: 4
       customType: 4
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 551096555
+      path: 1859576002
       attribute: 4
       script: {fileID: 0}
       typeID: 4
@@ -190,7 +190,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: -68.482
+        value: 70.546
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -201,7 +201,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: wizard/Armature/R.arm.001/R.arm.002
+    path: Container/wizard/Armature/Bone
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -209,7 +209,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 47.46
+        value: 90
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -220,7 +220,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: wizard/Armature/R.arm.001/R.arm.002
+    path: Container/wizard/Armature/Bone
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -228,7 +228,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 2.782
+        value: 90
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -239,7 +239,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: wizard/Armature/R.arm.001/R.arm.002
+    path: Container/wizard/Armature/Bone
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -258,7 +258,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: wizard/Armature/L.arm.001/L.arm.002
+    path: Container/wizard/Armature/L.arm.001/L.arm.002
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -277,7 +277,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: wizard/Armature/L.arm.001/L.arm.002
+    path: Container/wizard/Armature/L.arm.001/L.arm.002
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -296,7 +296,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: wizard/Armature/L.arm.001/L.arm.002
+    path: Container/wizard/Armature/L.arm.001/L.arm.002
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -315,7 +315,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: wizard/Armature/L.arm.001/L.arm.002/L.arm.003
+    path: Container/wizard/Armature/L.arm.001/L.arm.002/L.arm.003
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -334,7 +334,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: wizard/Armature/L.arm.001/L.arm.002/L.arm.003
+    path: Container/wizard/Armature/L.arm.001/L.arm.002/L.arm.003
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -353,7 +353,121 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: wizard/Armature/L.arm.001/L.arm.002/L.arm.003
+    path: Container/wizard/Armature/L.arm.001/L.arm.002/L.arm.003
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAnglesRaw.x
+    path: Container/wizard/Armature/L.arm.001/L.arm.002/L.arm.003/L.arm.004
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAnglesRaw.y
+    path: Container/wizard/Armature/L.arm.001/L.arm.002/L.arm.003/L.arm.004
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAnglesRaw.z
+    path: Container/wizard/Armature/L.arm.001/L.arm.002/L.arm.003/L.arm.004
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: -68.482
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAnglesRaw.x
+    path: Container/wizard/Armature/R.arm.001/R.arm.002
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 47.46
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAnglesRaw.y
+    path: Container/wizard/Armature/R.arm.001/R.arm.002
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 2.782
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAnglesRaw.z
+    path: Container/wizard/Armature/R.arm.001/R.arm.002
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -372,7 +486,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: wizard/Armature/R.arm.001/R.arm.002/R.arm.003
+    path: Container/wizard/Armature/R.arm.001/R.arm.002/R.arm.003
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -391,7 +505,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: wizard/Armature/R.arm.001/R.arm.002/R.arm.003
+    path: Container/wizard/Armature/R.arm.001/R.arm.002/R.arm.003
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -410,121 +524,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: wizard/Armature/R.arm.001/R.arm.002/R.arm.003
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: localEulerAnglesRaw.x
-    path: wizard/Armature/L.arm.001/L.arm.002/L.arm.003/L.arm.004
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: localEulerAnglesRaw.y
-    path: wizard/Armature/L.arm.001/L.arm.002/L.arm.003/L.arm.004
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: localEulerAnglesRaw.z
-    path: wizard/Armature/L.arm.001/L.arm.002/L.arm.003/L.arm.004
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 70.546
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: localEulerAnglesRaw.x
-    path: wizard/Armature/Bone
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 90
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: localEulerAnglesRaw.y
-    path: wizard/Armature/Bone
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 90
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: localEulerAnglesRaw.z
-    path: wizard/Armature/Bone
+    path: Container/wizard/Armature/R.arm.001/R.arm.002/R.arm.003
     classID: 4
     script: {fileID: 0}
   m_EulerEditorCurves:
@@ -535,7 +535,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: wizard/Armature/R.arm.001/R.arm.002
+    path: Container/wizard/Armature/L.arm.001/L.arm.002/L.arm.003/L.arm.004
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -545,7 +545,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: wizard/Armature/R.arm.001/R.arm.002
+    path: Container/wizard/Armature/L.arm.001/L.arm.002/L.arm.003/L.arm.004
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -555,7 +555,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: wizard/Armature/R.arm.001/R.arm.002
+    path: Container/wizard/Armature/L.arm.001/L.arm.002/L.arm.003/L.arm.004
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -565,7 +565,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: wizard/Armature/L.arm.001/L.arm.002
+    path: Container/wizard/Armature/Bone
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -575,7 +575,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: wizard/Armature/L.arm.001/L.arm.002
+    path: Container/wizard/Armature/Bone
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -585,7 +585,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: wizard/Armature/L.arm.001/L.arm.002
+    path: Container/wizard/Armature/Bone
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -595,7 +595,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: wizard/Armature/R.arm.001/R.arm.002/R.arm.003
+    path: Container/wizard/Armature/R.arm.001/R.arm.002
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -605,7 +605,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: wizard/Armature/R.arm.001/R.arm.002/R.arm.003
+    path: Container/wizard/Armature/R.arm.001/R.arm.002
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -615,7 +615,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: wizard/Armature/R.arm.001/R.arm.002/R.arm.003
+    path: Container/wizard/Armature/R.arm.001/R.arm.002
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -625,7 +625,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: wizard/Armature/L.arm.001/L.arm.002/L.arm.003
+    path: Container/wizard/Armature/L.arm.001/L.arm.002
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -635,7 +635,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: wizard/Armature/L.arm.001/L.arm.002/L.arm.003
+    path: Container/wizard/Armature/L.arm.001/L.arm.002
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -645,27 +645,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: wizard/Armature/L.arm.001/L.arm.002/L.arm.003
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.x
-    path: wizard/Armature/L.arm.001/L.arm.002/L.arm.003/L.arm.004
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.y
-    path: wizard/Armature/L.arm.001/L.arm.002/L.arm.003/L.arm.004
+    path: Container/wizard/Armature/L.arm.001/L.arm.002
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -675,17 +655,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: wizard/Armature/L.arm.001/L.arm.002/L.arm.003/L.arm.004
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.x
-    path: wizard/Armature/Bone
+    path: Container/wizard/Armature/L.arm.001/L.arm.002/L.arm.003
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -695,7 +665,37 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: wizard/Armature/Bone
+    path: Container/wizard/Armature/L.arm.001/L.arm.002/L.arm.003
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.x
+    path: Container/wizard/Armature/L.arm.001/L.arm.002/L.arm.003
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.x
+    path: Container/wizard/Armature/R.arm.001/R.arm.002/R.arm.003
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.y
+    path: Container/wizard/Armature/R.arm.001/R.arm.002/R.arm.003
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -705,7 +705,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: wizard/Armature/Bone
+    path: Container/wizard/Armature/R.arm.001/R.arm.002/R.arm.003
     classID: 4
     script: {fileID: 0}
   m_HasGenericRootTransform: 0
