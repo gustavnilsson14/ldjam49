@@ -8,6 +8,7 @@ using UnityEngine.Events;
 public enum InputType
 {
     JUMP,
+    SPELLCAST
 }
 public enum AxisType
 {
@@ -61,9 +62,21 @@ public class InputLogic : InterfaceLogicBase
         {
             HandleJumperInput(inputReciever);
             HandleMoverInput(inputReciever);
+            HandleCastSpellInput(inputReciever);
         }
     }
 
+    private void HandleCastSpellInput(IInputReciever inputReciever)
+    {
+        if (!(inputReciever is ISmokeBombCaster))
+            return;
+        foreach (InputMapping inputMapping in inputReciever.GetInputMappings().FindAll(x => x.inputType == InputType.SPELLCAST))
+        {
+            if (!GetInput(inputMapping))
+                continue;
+            MagicLogic.I.CastSmokeBomb(inputReciever as ISmokeBombCaster);
+        }
+    }
 
     private void HandleJumperInput(IInputReciever inputReciever)
     {
