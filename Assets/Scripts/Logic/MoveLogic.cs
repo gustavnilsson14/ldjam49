@@ -36,50 +36,53 @@ public class MoveLogic : InterfaceLogicBase
         movers.Add(mover);
     }
 
-    public void Update()
+    public void FixedUpdate()
     {
+        movers.ForEach(x => CheckGrounded(x));
         movers.ForEach(x => Move(x));
-        movers.ForEach(x => HandleFallSpeed(x));
-    }
-
-    private void HandleFallSpeed(IMover mover)
-    {
-        if (!mover.GetGameObject().TryGetComponent(out Rigidbody rb))
-            return;
-        if (rb.velocity.y > 0)
-            return;
-        rb.velocity += new Vector3(0, rb.velocity.y, 0) * Time.deltaTime * 5;
     }
 
     private void Move(IMover mover)
     {
-        if (!mover.GetGameObject().TryGetComponent<Rigidbody>(out Rigidbody rb))
+        if (!mover.GetGameObject().TryGetComponent<Rigidbody>(out Rigidbody rigidbody))
             return;
-        if (!IsGrounded(mover))
-            return;
-        rb.velocity = GetVelocity(mover, rb);
+
+        Vector3 move = mover.movementVector *
+            mover.GetMoveSpeed() * Time.fixedDeltaTime;
+        rigidbody.MovePosition(mover.GetGameObject().transform.position + move);
     }
 
-    private Vector3 GetVelocity(IMover mover, Rigidbody rb)
-    {
-        if (mover.movementVector == Vector3.zero)
-            return new Vector3(0,rb.velocity.y,0);
-        return rb.velocity + (mover.movementVector * mover.GetAcceleration() * Time.deltaTime);
-    }
+    public void CheckGrounded(IMover mover) {
+        mover.isGrounded = false;
+        if (!mover.GetGameObject().TryGetComponent<CapsuleCollider>(out CapsuleCollider capsuleCollider))
+            return;
+        float capsuleHeight = Mathf.Max(capsuleCollider.radius * 2f, capsuleCollider.height);
+        Vector3 capsuleBottom = mover.GetGameObject().transform.TransformPoint(capsuleCollider.center - Vector3.up * capsuleHeight / 2f);
+        float radius = mover.GetGameObject().transform.TransformVector(capsuleCollider.radius, 0f, 0f).magnitude;
 
-    public bool IsGrounded(IMover mover) {
-        Transform transform = mover.GetGameObject().transform;
-        Vector3 overlapCenter = transform.position + Vector3.down;
-        if (Physics.OverlapBox(overlapCenter, transform.localScale / 2, transform.rotation, groundLayer).Length == 0)
-            return false;
-        return true;
+        Ray ray = new Ray(capsuleBottom + mover.GetGameObject().transform.up * .01f, -mover.GetGameObject().transform.up);
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit, radius * 5f))
+        {
+            float normalAngle = Vector3.Angle(hit.normal, mover.GetGameObject().transform.up);
+            if (normalAngle < mover.GetSlopeLimit())
+            {
+                float maxDist = radius / Mathf.Cos(Mathf.Deg2Rad * normalAngle) - radius + .02f;
+                if (hit.distance < maxDist)
+                    mover.isGrounded = true;
+            }
+        }
     }
 }
 
 public interface IMover : IAnimated
 {
-    float GetMaxSpeed();
-    float GetAcceleration();
+    float GetSlopeLimit();
+    float GetMoveSpeed();
+    bool GetAllowJump();
+    bool isGrounded { get; set; }
+    float GetJumpSpeed();
+
     Vector3 movementVector { get; set; }
     MoveEvent OnMove { get; set; }
 }
