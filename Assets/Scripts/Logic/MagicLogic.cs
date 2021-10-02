@@ -9,7 +9,7 @@ public class MagicLogic : InterfaceLogicBase
 
     public GameObject smokeBombPrefab;
     public GameObject platformPrefab;
-
+    public float platformDownwardsSpawnDistance;
 
     protected override void OnInstantiate(GameObject newInstance, IBase newBase)
     {
@@ -70,7 +70,7 @@ public class MagicLogic : InterfaceLogicBase
 
     public void CastPlatform(IPlatformCaster platformCaster)
     {
-        PrefabFactory.I.Create(platformPrefab, null, platformCaster.GetGameObject().transform);
+        PrefabFactory.I.Create(platformPrefab, null, platformCaster.GetGameObject().transform.position + (Vector3.down * platformDownwardsSpawnDistance));
     }
 }
 public interface IMagicCaster : IAnimated
