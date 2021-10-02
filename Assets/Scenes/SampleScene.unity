@@ -5485,7 +5485,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 777676139}
-  m_LocalRotation: {x: 0.07021605, y: 0.000000017692155, z: -0.0000000012453472, w: 0.99753183}
+  m_LocalRotation: {x: 0.07021605, y: -0.000000017692155, z: 0.0000000012453472, w: 0.99753183}
   m_LocalPosition: {x: 0, y: 3.85, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -5605,7 +5605,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.07021605, y: 0.000000017692155, z: -0.0000000012453472, w: 0.99753183}
+  m_LocalRotation: {x: 0.07021605, y: -0.000000017692155, z: 0.0000000012453472, w: 0.99753183}
   m_LocalPosition: {x: 0, y: 3.85, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -5985,6 +5985,7 @@ GameObject:
   - component: {fileID: 1802383106}
   - component: {fileID: 1802383107}
   - component: {fileID: 1802383108}
+  - component: {fileID: 1802383109}
   m_Layer: 0
   m_Name: Root
   m_TagString: Untagged
@@ -6125,6 +6126,19 @@ MonoBehaviour:
   myInstances: []
   smokeBombPrefab: {fileID: 387028715857756309, guid: ed036c3dafc3d8741b11f2ec4d01d8f6, type: 3}
   platformPrefab: {fileID: 8910798486982571774, guid: cc7344525ab3a99448f7c4513ec5bbc9, type: 3}
+--- !u!114 &1802383109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1802383099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f76de5e757652674d8af10400995bd01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myInstances: []
 --- !u!1001 &1831355273
 PrefabInstance:
   m_ObjectHideFlags: 0

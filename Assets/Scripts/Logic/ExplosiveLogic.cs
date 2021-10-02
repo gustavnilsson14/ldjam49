@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class ExplosiveLogic : InterfaceLogicBase
@@ -48,16 +49,11 @@ public class ExplosiveLogic : InterfaceLogicBase
 
         Collider[] hitColliders = Physics.OverlapSphere(explosive.GetGameObject().transform.position, explosive.GetRadius());
 
-        Debug.Log("exploded");
-
         foreach (Collider collider in hitColliders)
         {
             if (!collider.TryGetComponent<Rigidbody>(out Rigidbody rigidbody))
                 continue;
-
-            Debug.Log("exploded");
             rigidbody.AddExplosionForce(explosive.GetPower(), explosive.GetGameObject().transform.position, explosive.GetRadius(), 1.0f);
-            Debug.Log(collider.gameObject.name);
         }
         explosive.exploded = true;
         Destroy(explosive.GetGameObject());

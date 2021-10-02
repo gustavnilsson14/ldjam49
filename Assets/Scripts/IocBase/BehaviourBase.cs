@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -40,5 +41,20 @@ public class BehaviourBase : MonoBehaviour, IBase, IPointerClickHandler
     public virtual void OnPointerClick(PointerEventData eventData)
     {
         onClick.Invoke(this);
+    }
+
+    public static bool GetBehaviourOfType<T>(out BehaviourBase behaviour, GameObject gameObject)
+    {
+        behaviour = null;
+        List<BehaviourBase> behaviourBases = gameObject.GetComponents<BehaviourBase>().ToList();
+        foreach (BehaviourBase behaviourBase in behaviourBases)
+        {
+            if (behaviourBase is T)
+            {
+                behaviour = behaviourBase;
+                return true;
+            }
+        }
+        return false;
     }
 }
