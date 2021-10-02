@@ -68,13 +68,13 @@ public class InputLogic : InterfaceLogicBase
 
     private void HandleCastSpellInput(IInputReciever inputReciever)
     {
-        if (!(inputReciever is ISmokeBombCaster))
+        if (!(inputReciever is IMagicCaster))
             return;
         foreach (InputMapping inputMapping in inputReciever.GetInputMappings().FindAll(x => x.inputType == InputType.SPELLCAST))
         {
             if (!GetInput(inputMapping))
                 continue;
-            MagicLogic.I.CastSmokeBomb(inputReciever as ISmokeBombCaster);
+            MagicLogic.I.CastMagic(inputReciever as IMagicCaster);
         }
     }
 

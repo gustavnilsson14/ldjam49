@@ -9,7 +9,7 @@ public class AnimationLogic : InterfaceLogicBase
 {
     public static AnimationLogic I;
 
-    private bool debug = true;
+    private bool debug = false;
 
     protected override void OnInstantiate(GameObject newInstance, IBase newBase)
     {

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : BehaviourBase, IInputReciever, IMover, IJumper, ISmokeBombCaster
+public class Player : BehaviourBase, IInputReciever, IMover, IJumper, ISmokeBombCaster, IPlatformCaster, IMagicCaster
 {
     public List<AxisMapping> axisMappings;
     public List<InputMapping> inputMappings;
@@ -26,6 +26,8 @@ public class Player : BehaviourBase, IInputReciever, IMover, IJumper, ISmokeBomb
     public JumpEvent onLand { get; set; }
     public MoveEvent OnLand { get; set; }
     public SmokeBombCastEvent onCastSmokeBomb { get; set; }
+    public PlatformCastEvent onCastPlatform { get; set; }
+    public MagicCastEvent onCastMagic { get; set; }
 
     public float GetSlopeLimit() => slopeLimit;
     public float GetMoveSpeed() => moveSpeed;
