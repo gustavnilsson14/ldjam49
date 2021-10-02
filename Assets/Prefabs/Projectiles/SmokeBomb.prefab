@@ -68,7 +68,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   power: 6666
   time: 4
-  radius: 75
+  radius: 6
 --- !u!114 &2631361392237416612
 MonoBehaviour:
   m_ObjectHideFlags: 0
