@@ -75,17 +75,26 @@ public class MoveLogic : InterfaceLogicBase
     {
         if (!mover.GetGameObject().TryGetComponent<Rigidbody>(out Rigidbody rigidbody))
             return;
-        if (mover.isGrounded)
-            mover.direction = mover.movementVector;
         if (!mover.isGrounded)
         {
-            mover.direction += mover.movementVector * mover.GetMoveSpeedAir();
-            mover.direction = Vector3.ClampMagnitude(mover.direction, 1);
+            if (rigidbody.velocity.x < 6 && rigidbody.velocity.x > -6)
+                rigidbody.AddForce(mover.movementVector * mover.GetMoveSpeedAir());
+            if(mover.movementVector.x < 0 && rigidbody.velocity.x >= 6)
+                rigidbody.AddForce(mover.movementVector * mover.GetMoveSpeedAir());
+            if (mover.movementVector.x > 0 && rigidbody.velocity.x <= -6)
+                rigidbody.AddForce(mover.movementVector * mover.GetMoveSpeedAir());
         }
-        Vector3 currentMovement = mover.direction * mover.GetMoveSpeed() * Time.fixedDeltaTime;
+
+        Vector3 currentMovement = mover.movementVector * mover.GetMoveSpeed() * Time.fixedDeltaTime;
         HandleStartStop(mover, currentMovement);
-        rigidbody.MovePosition(mover.GetGameObject().transform.position + currentMovement);
-        mover.previousHorizontalVelocity = currentMovement;
+
+        if (mover.isGrounded)
+        {
+            if (rigidbody.velocity.x < 6 && rigidbody.velocity.x > -6)
+                rigidbody.AddForce(mover.movementVector * mover.GetMoveSpeed());
+        }
+
+        mover.previousHorizontalVelocity = mover.movementVector;
     }
 
     private void HandleStartStop(IMover mover, Vector3 currentMovement)
