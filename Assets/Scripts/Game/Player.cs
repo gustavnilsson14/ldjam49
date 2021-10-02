@@ -20,6 +20,9 @@ public class Player : BehaviourBase, IInputReciever, IMover, IJumper
     public float gravityMultiplier { get; set; }
     public Vector3 direction { get; set; }
     public MoveEvent OnMove { get; set; }
+    public Vector3 previousHorizontalVelocity { get; set; }
+    public MoveEvent OnStartMove { get; set; }
+    public MoveEvent OnStopMove { get; set; }
 
     public float GetSlopeLimit() => slopeLimit;
     public float GetMoveSpeed() => moveSpeed;
