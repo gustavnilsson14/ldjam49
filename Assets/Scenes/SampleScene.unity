@@ -5544,6 +5544,26 @@ PrefabInstance:
       propertyPath: inputMappings.Array.data[1].inputType
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6312396471535132255, guid: fdc5803ad1d9b914e9b2ec836d28dd89, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6312396471535132255, guid: fdc5803ad1d9b914e9b2ec836d28dd89, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6312396471535132255, guid: fdc5803ad1d9b914e9b2ec836d28dd89, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6312396471535132255, guid: fdc5803ad1d9b914e9b2ec836d28dd89, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6312396471535132255, guid: fdc5803ad1d9b914e9b2ec836d28dd89, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6368147295534423303, guid: fdc5803ad1d9b914e9b2ec836d28dd89, type: 3}
       propertyPath: m_Name
       value: Wizard
@@ -6022,7 +6042,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8277021661751201355, guid: 9573422ebfb86114c81f83582e74a844, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8277021661751201355, guid: 9573422ebfb86114c81f83582e74a844, type: 3}
       propertyPath: m_LocalPosition.x
