@@ -32,6 +32,14 @@ public class PrefabFactory : InterfaceLogicBase
         return newGameObject;
     }
 
+    public GameObject Create(GameObject prefab, Transform parent, Vector3 origin)
+    {
+        GameObject newGameObject = Instantiate(prefab, parent);
+        newGameObject.transform.position = origin;
+        StartCoroutine(RegisterNewInstance(newGameObject));
+        return newGameObject;
+    }
+
     public IEnumerator RegisterNewInstance(GameObject newGameObject)
     {
         onInstantiate.Invoke(newGameObject);
