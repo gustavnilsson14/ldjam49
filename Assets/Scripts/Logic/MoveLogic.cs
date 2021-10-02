@@ -122,7 +122,9 @@ public class MoveLogic : InterfaceLogicBase
             {
                 float maxDist = radius / Mathf.Cos(Mathf.Deg2Rad * normalAngle) - radius + .02f;
                 if (hit.distance < maxDist)
+                {
                     mover.isGrounded = true;
+                }
             }
         }
         if (mover.animator.GetBool("IsGrounded") == mover.isGrounded)
