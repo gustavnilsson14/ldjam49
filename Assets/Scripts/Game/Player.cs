@@ -19,6 +19,8 @@ public class Player : BehaviourBase,
     public bool allowJump;
     public float jumpSpeed;
     public float moveSpeedAir;
+    public AudioSource jumpSound;
+
     public bool isGrounded { get; set; }
 
     public JumpEvent onJump { get; set; }
@@ -45,4 +47,7 @@ public class Player : BehaviourBase,
 
     public List<AxisMapping> GetAxisMappings() => axisMappings;
     public List<InputMapping> GetInputMappings() => inputMappings;
+
+    public AudioSource GetJumpSound() => jumpSound;
+
 }

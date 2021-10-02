@@ -24,12 +24,14 @@ public class AnimationLogic : InterfaceLogicBase
         animated.animator = animated.GetGameObject().GetComponent<Animator>();
     }
 
-    public void RunAnimationEvent(Animator animator, string animationKey, bool useParameterType, AnimatorControllerParameterType parameterType) {
+    public void RunAnimationEvent(Animator animator, string animationKey, bool useParameterType, AnimatorControllerParameterType parameterType, AudioSource audioSource) {
         if (!useParameterType)
         {
             animator.Play(animationKey);
             return;
         }
+        if (audioSource != null)
+            audioSource.Play();
         switch (parameterType)
         {
             case AnimatorControllerParameterType.Bool:
@@ -44,40 +46,45 @@ public class AnimationLogic : InterfaceLogicBase
     {
         bool useParameterType = animationEvent.TryGetParameterType(out AnimatorControllerParameterType parameterType);
         string parameterName = $"{animationEvent.GetType().ToString()}_{animationEvent.GetName()}";
+        AudioSource audioSource = animationEvent.audioSource;
         LocalDebug(parameterName);
-        RunAnimationEvent(animationEvent.animator, parameterName, useParameterType, parameterType);
+        RunAnimationEvent(animationEvent.animator, parameterName, useParameterType, parameterType, audioSource);
     }
 
     internal void RunAnimationEvent<T0>(AnimationEvent<T0> animationEvent)
     {
         bool useParameterType = animationEvent.TryGetParameterType(out AnimatorControllerParameterType parameterType);
         string parameterName = $"{animationEvent.GetType().ToString()}_{animationEvent.GetName()}";
+        AudioSource audioSource = animationEvent.audioSource;
         LocalDebug(parameterName);
-        RunAnimationEvent(animationEvent.animator, parameterName, useParameterType, parameterType);
+        RunAnimationEvent(animationEvent.animator, parameterName, useParameterType, parameterType, audioSource);
     }
 
     internal void RunAnimationEvent<T0, T1>(AnimationEvent<T0, T1> animationEvent)
     {
         bool useParameterType = animationEvent.TryGetParameterType(out AnimatorControllerParameterType parameterType);
         string parameterName = $"{animationEvent.GetType().ToString()}_{animationEvent.GetName()}";
+        AudioSource audioSource = animationEvent.audioSource;
         LocalDebug(parameterName);
-        RunAnimationEvent(animationEvent.animator, parameterName, useParameterType, parameterType);
+        RunAnimationEvent(animationEvent.animator, parameterName, useParameterType, parameterType, audioSource);
     }
 
     internal void RunAnimationEvent<T0, T1, T2>(AnimationEvent<T0, T1, T2> animationEvent)
     {
         bool useParameterType = animationEvent.TryGetParameterType(out AnimatorControllerParameterType parameterType);
         string parameterName = $"{animationEvent.GetType().ToString()}_{animationEvent.GetName()}";
+        AudioSource audioSource = animationEvent.audioSource;
         LocalDebug(parameterName);
-        RunAnimationEvent(animationEvent.animator, parameterName, useParameterType, parameterType);
+        RunAnimationEvent(animationEvent.animator, parameterName, useParameterType, parameterType, audioSource);
     }
 
     internal void RunAnimationEvent<T0, T1, T2, T3>(AnimationEvent<T0, T1, T2, T3> animationEvent)
     {
         bool useParameterType = animationEvent.TryGetParameterType(out AnimatorControllerParameterType parameterType);
         string parameterName = $"{animationEvent.GetType().ToString()}_{animationEvent.GetName()}";
+        AudioSource audioSource = animationEvent.audioSource;
         LocalDebug(parameterName);
-        RunAnimationEvent(animationEvent.animator, parameterName, useParameterType, parameterType);
+        RunAnimationEvent(animationEvent.animator, parameterName, useParameterType, parameterType, audioSource);
     }
 
     private void LocalDebug(string s) {
@@ -95,10 +102,12 @@ public class AnimationEvent : UnityEvent
     public IBase b;
     public string name;
     public Animator animator;
-    public AnimationEvent(IBase b = null, string name = "default")
+    public AudioSource audioSource;
+    public AnimationEvent(IBase b = null, string name = "default", AudioSource audioSource = null)
     {
         this.b = b;
         this.name = name;
+        this.audioSource = audioSource;
         if (b == null)
             return;
         this.animator = b.GetGameObject().GetComponent<Animator>();
@@ -121,10 +130,12 @@ public class AnimationEvent<T0> : UnityEvent<T0>
     public IBase b;
     public string name;
     public Animator animator;
-    public AnimationEvent(IBase b = null, string name = "default")
+    public AudioSource audioSource;
+    public AnimationEvent(IBase b = null, string name = "default", AudioSource audioSource = null)
     {
         this.b = b;
         this.name = name;
+        this.audioSource = audioSource;
         if (b == null)
             return;
         this.animator = b.GetGameObject().GetComponent<Animator>();
@@ -148,10 +159,12 @@ public class AnimationEvent<T0, T1> : UnityEvent<T0, T1>
     public IBase b;
     public string name;
     public Animator animator;
-    public AnimationEvent(IBase b = null, string name = "default")
+    public AudioSource audioSource;
+    public AnimationEvent(IBase b = null, string name = "default", AudioSource audioSource = null)
     {
         this.b = b;
         this.name = name;
+        this.audioSource = audioSource;
         if (b == null)
             return;
         this.animator = b.GetGameObject().GetComponent<Animator>();
@@ -175,10 +188,12 @@ public class AnimationEvent<T0, T1, T2> : UnityEvent<T0, T1, T2>
     public IBase b;
     public string name;
     public Animator animator;
-    public AnimationEvent(IBase b = null, string name = "default")
+    public AudioSource audioSource;
+    public AnimationEvent(IBase b = null, string name = "default", AudioSource audioSource = null)
     {
         this.b = b;
         this.name = name;
+        this.audioSource = audioSource;
         if (b == null)
             return;
         this.animator = b.GetGameObject().GetComponent<Animator>();
@@ -203,10 +218,12 @@ public class AnimationEvent<T0, T1, T2, T3> : UnityEvent<T0, T1, T2, T3>
     public IBase b;
     public string name;
     public Animator animator;
-    public AnimationEvent(IBase b = null, string name = "default")
+    public AudioSource audioSource;
+    public AnimationEvent(IBase b = null, string name = "default", AudioSource audioSource = null)
     {
         this.b = b;
         this.name = name;
+        this.audioSource = audioSource;
         if (b == null)
             return;
         this.animator = b.GetGameObject().GetComponent<Animator>();
