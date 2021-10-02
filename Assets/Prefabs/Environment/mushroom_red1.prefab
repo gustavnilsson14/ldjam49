@@ -187,6 +187,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4901505894287493778}
   - component: {fileID: 8175256493817857557}
+  - component: {fileID: -8797574688171102274}
+  - component: {fileID: 3492883253625070933}
   m_Layer: 3
   m_Name: mushroom_red1
   m_TagString: Untagged
@@ -223,6 +225,32 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.21, y: 1, z: 1}
   m_Center: {x: 0, y: 2.38, z: 0}
+--- !u!114 &-8797574688171102274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8002868218871190098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c55bc409ea012a46a300e09fb8a80d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bounciness: 12
+--- !u!65 &3492883253625070933
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8002868218871190098}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.2, y: 1, z: 0.99}
+  m_Center: {x: 0, y: 2.4, z: 0}
 --- !u!1 &9078843703116293527
 GameObject:
   m_ObjectHideFlags: 0

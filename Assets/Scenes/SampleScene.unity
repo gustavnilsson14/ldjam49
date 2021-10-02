@@ -5505,6 +5505,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 4365795551312330559, guid: fdc5803ad1d9b914e9b2ec836d28dd89, type: 3}
+      propertyPath: moveSpeedAir
+      value: 0.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 4365795551312330559, guid: fdc5803ad1d9b914e9b2ec836d28dd89, type: 3}
       propertyPath: axisMappings.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -5707,6 +5711,7 @@ GameObject:
   - component: {fileID: 1802383100}
   - component: {fileID: 1802383104}
   - component: {fileID: 1802383105}
+  - component: {fileID: 1802383106}
   m_Layer: 0
   m_Name: Root
   m_TagString: Untagged
@@ -5806,6 +5811,19 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
+--- !u!114 &1802383106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1802383099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d94f22711fd681b46b2eb9cf12184028, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myInstances: []
 --- !u!4 &1887806536 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7432931095643693370, guid: fdc5803ad1d9b914e9b2ec836d28dd89, type: 3}
@@ -5875,6 +5893,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3492883253625070933, guid: c5034556674e48c41b93809c72483c7d, type: 3}
+      propertyPath: m_Center.y
+      value: 2.5
+      objectReference: {fileID: 0}
     - target: {fileID: 4901505894287493778, guid: c5034556674e48c41b93809c72483c7d, type: 3}
       propertyPath: m_RootOrder
       value: 2

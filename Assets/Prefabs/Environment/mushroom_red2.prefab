@@ -194,6 +194,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4670726495448568179}
+  - component: {fileID: -3970107637179785103}
   m_Layer: 0
   m_Name: mushroom_red2
   m_TagString: Untagged
@@ -217,6 +218,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-3970107637179785103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6747031419803834005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c55bc409ea012a46a300e09fb8a80d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bounciness: 12
 --- !u!1 &7117185728264143745
 GameObject:
   m_ObjectHideFlags: 0

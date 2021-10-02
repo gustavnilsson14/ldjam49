@@ -38,7 +38,6 @@ public class JumpLogic : InterfaceLogicBase
 }
 public interface IJumper : IAnimated
 {
-    float GetJumpForce();
     JumpEvent onJump { get; set; }
 }
 public class JumpEvent : AnimationEvent<IJumper>
