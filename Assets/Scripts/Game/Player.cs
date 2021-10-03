@@ -19,12 +19,14 @@ public class Player : BehaviourBase,
     public bool allowJump;
     public float jumpSpeed;
     public float moveSpeedAir;
-    public AudioSource jumpSound;
+    
     public float castCooldown;
-    public AudioSource damageAudio;
+    public float decayTime;
 
+    public AudioSource damageSound;
+    public AudioSource jumpSound;
+    
     public bool isGrounded { get; set; }
-
     public JumpEvent onJump { get; set; }
     public Animator animator { get; set; }
     public Vector3 movementVector { get; set; }
@@ -41,6 +43,7 @@ public class Player : BehaviourBase,
     public MagicCastEvent onCastMagic { get; set; }
     public MortalityEvent onTakeDamage { get; set; }
     public float nextCast { get; set; }
+    public bool alive { get; set; }
 
     public float GetSlopeLimit() => slopeLimit;
     public float GetMoveSpeed() => moveSpeed;
@@ -55,5 +58,8 @@ public class Player : BehaviourBase,
 
     public float GetCastCooldown() => castCooldown;
 
-    public AudioSource GetDamageAudio() => damageAudio;
+    public AudioSource GetDamageAudio() => damageSound;
+
+    public float GetDecayTime() => decayTime;
+
 }
