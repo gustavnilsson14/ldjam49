@@ -26,6 +26,7 @@ public class Player : BehaviourBase,
 
     public AudioSource damageSound;
     public AudioSource jumpSound;
+    public AudioSource landSound;
     public AudioSource torchLightSound;
 
     public bool isGrounded { get; set; }
@@ -48,6 +49,7 @@ public class Player : BehaviourBase,
     public bool alive { get; set; }
     public TorchLighterEvent onLightTorch { get; set; }
     public TorchLighterEvent onStopLightTorch { get; set; }
+    public bool busyLighting { get; set; }
 
     public float GetSlopeLimit() => slopeLimit;
     public float GetMoveSpeed() => moveSpeed;
@@ -67,4 +69,6 @@ public class Player : BehaviourBase,
     public float GetDecayTime() => decayTime;
 
     public AudioSource GetTorchLightAudio() => torchLightSound;
+
+    public AudioSource GetLandSound() => landSound;
 }

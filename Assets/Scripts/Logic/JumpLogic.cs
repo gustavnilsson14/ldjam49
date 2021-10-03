@@ -23,7 +23,7 @@ public class JumpLogic : InterfaceLogicBase
         if (jumper == null)
             return;
         jumper.onJump = new JumpEvent(jumper, "Jump", jumper.GetJumpSound());
-        jumper.onLand = new JumpEvent(jumper, "Land");
+        jumper.onLand = new JumpEvent(jumper, "Land", jumper.GetLandSound());
     }
     private void JumperInternalListeners(IJumper jumper)
     {
@@ -39,7 +39,10 @@ public class JumpLogic : InterfaceLogicBase
             return;
         if (!(jumper as IMover).isGrounded)
             return;
-
+        if (!MortalityLogic.I.CheckMortal(jumper))
+            return;
+        if (!TorchLogic.I.CheckLighterBusy(jumper))
+            return;
         rigidbody.AddForce(transform.up * jumper.GetJumpSpeed(), ForceMode.VelocityChange);
         jumper.onJump.Invoke(jumper);
     }
@@ -59,6 +62,7 @@ public interface IJumper : IAnimated
     JumpEvent onLand { get; set; }
     float GetJumpSpeed();
     AudioSource GetJumpSound();
+    AudioSource GetLandSound();
 }
 public class JumpEvent : AnimationEvent<IJumper>
 {

@@ -22,12 +22,14 @@ public class MortalityLogic : InterfaceLogicBase
     {
         if (mortal == null)
             return;
-
+        mortal.alive = true;
         mortal.onTakeDamage = new MortalityEvent(mortal, "Damage", mortal.GetDamageAudio());
     }
 
     public void TakeDamage(IMortal mortal)
     {
+        if (!mortal.alive)
+            return;
         mortal.onTakeDamage.Invoke(mortal);
         Die(mortal);
     }
@@ -36,8 +38,16 @@ public class MortalityLogic : InterfaceLogicBase
     {
         mortal.alive = false;
         if (mortal.GetGameObject().TryGetComponent(out Rigidbody rb))
-            rb.constraints = RigidbodyConstraints.FreezeAll;
+            rb.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation;
         //Destroy(mortal.GetGameObject(), mortal.GetDecayTime());
+    }
+
+
+    public bool CheckMortal(IBase ibase)
+    {
+        if (!(ibase is IMortal))
+            return true;
+        return (ibase as IMortal).alive;
     }
 }
 public interface IMortal : IAnimated
