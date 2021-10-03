@@ -31,7 +31,7 @@ public class TorchLogic : InterfaceLogicBase
         if (torchLighter == null)
             return;
         torchLighter.onLightTorch = new TorchLighterEvent(torchLighter, "TorchLight", torchLighter.GetTorchLightAudio());
-        torchLighter.onStopLightTorch = new TorchLighterEvent(torchLighter, "StopTorchLight", torchLighter.GetTorchLightAudio());
+        torchLighter.onStopLightTorch = new TorchLighterEvent(torchLighter, "StopTorchLight");
     }
 
     protected override void UnRegister(IBase b)
@@ -47,10 +47,10 @@ public class TorchLogic : InterfaceLogicBase
         ITorchLighter torchLighter = arg1.GetComponent<ITorchLighter>();
         if (torch == null || torchLighter == null)
             return;
-        torchLighter.onLightTorch.Invoke(torchLighter, torch);
         if (torchesLit.Contains(torch))
             return;
         torch.onTorchLit.Invoke(torch);
+        torchLighter.onLightTorch.Invoke(torchLighter, torch);
         torchesLit.Add(torch);
     }
 
