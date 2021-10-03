@@ -48,6 +48,8 @@ public class MagicLogic : InterfaceLogicBase
     }
     public void CastMagic(IMagicCaster magicCaster)
     {
+        if (!TorchLogic.I.CheckLighterBusy(magicCaster))
+            return;
         if (Time.time < magicCaster.nextCast)
             return;
         magicCaster.nextCast = Time.time + magicCaster.GetCastCooldown();

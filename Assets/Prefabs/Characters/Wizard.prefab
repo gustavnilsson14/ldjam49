@@ -10019,13 +10019,13 @@ MonoBehaviour:
     axisType: 0
   inputMappings:
   - isMouse: 0
-    keyCode: 32
+    keyCode: 122
     mouseButton: 0
     inputType: 0
     inputHandlingType: 0
     mouseHandlingType: 0
   - isMouse: 0
-    keyCode: 118
+    keyCode: 120
     mouseButton: 0
     inputType: 1
     inputHandlingType: 0
@@ -10035,7 +10035,7 @@ MonoBehaviour:
   allowJump: 1
   jumpSpeed: 6
   moveSpeedAir: 50
-  castCooldown: 2
+  castCooldown: 1
   decayTime: 2
   damageSound: {fileID: 541248505810012139}
   jumpSound: {fileID: 8758780032563385972}

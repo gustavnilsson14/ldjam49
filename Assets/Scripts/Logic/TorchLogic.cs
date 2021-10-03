@@ -70,7 +70,7 @@ public class TorchLogic : InterfaceLogicBase
     private IEnumerator NotBusyAnymore(ITorchLighter torchLighter)
     {
         torchLighter.GetGameObject().GetComponent<Rigidbody>().velocity = Vector3.zero;
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(6);
         torchLighter.busyLighting = false;
     }
 
