@@ -25,13 +25,17 @@ public class AnimationLogic : InterfaceLogicBase
     }
 
     public void RunAnimationEvent(Animator animator, string animationKey, bool useParameterType, AnimatorControllerParameterType parameterType, AudioSource audioSource) {
+        LocalDebug(animationKey);
         if (!useParameterType)
         {
             animator.Play(animationKey);
             return;
         }
-        if (audioSource != null)
+
+        if (audioSource != null) {
             audioSource.Play();
+            LocalDebug(audioSource.name);
+        }
         switch (parameterType)
         {
             case AnimatorControllerParameterType.Bool:
@@ -47,7 +51,6 @@ public class AnimationLogic : InterfaceLogicBase
         bool useParameterType = animationEvent.TryGetParameterType(out AnimatorControllerParameterType parameterType);
         string parameterName = $"{animationEvent.GetType().ToString()}_{animationEvent.GetName()}";
         AudioSource audioSource = animationEvent.audioSource;
-        LocalDebug(parameterName);
         RunAnimationEvent(animationEvent.animator, parameterName, useParameterType, parameterType, audioSource);
     }
 
@@ -56,7 +59,7 @@ public class AnimationLogic : InterfaceLogicBase
         bool useParameterType = animationEvent.TryGetParameterType(out AnimatorControllerParameterType parameterType);
         string parameterName = $"{animationEvent.GetType().ToString()}_{animationEvent.GetName()}";
         AudioSource audioSource = animationEvent.audioSource;
-        LocalDebug(parameterName);
+        
         RunAnimationEvent(animationEvent.animator, parameterName, useParameterType, parameterType, audioSource);
     }
 
@@ -65,7 +68,6 @@ public class AnimationLogic : InterfaceLogicBase
         bool useParameterType = animationEvent.TryGetParameterType(out AnimatorControllerParameterType parameterType);
         string parameterName = $"{animationEvent.GetType().ToString()}_{animationEvent.GetName()}";
         AudioSource audioSource = animationEvent.audioSource;
-        LocalDebug(parameterName);
         RunAnimationEvent(animationEvent.animator, parameterName, useParameterType, parameterType, audioSource);
     }
 
@@ -74,16 +76,16 @@ public class AnimationLogic : InterfaceLogicBase
         bool useParameterType = animationEvent.TryGetParameterType(out AnimatorControllerParameterType parameterType);
         string parameterName = $"{animationEvent.GetType().ToString()}_{animationEvent.GetName()}";
         AudioSource audioSource = animationEvent.audioSource;
-        LocalDebug(parameterName);
         RunAnimationEvent(animationEvent.animator, parameterName, useParameterType, parameterType, audioSource);
     }
 
     internal void RunAnimationEvent<T0, T1, T2, T3>(AnimationEvent<T0, T1, T2, T3> animationEvent)
     {
+
         bool useParameterType = animationEvent.TryGetParameterType(out AnimatorControllerParameterType parameterType);
         string parameterName = $"{animationEvent.GetType().ToString()}_{animationEvent.GetName()}";
-        AudioSource audioSource = animationEvent.audioSource;
         LocalDebug(parameterName);
+        AudioSource audioSource = animationEvent.audioSource;
         RunAnimationEvent(animationEvent.animator, parameterName, useParameterType, parameterType, audioSource);
     }
 

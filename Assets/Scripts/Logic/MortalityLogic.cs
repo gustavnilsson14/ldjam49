@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -27,12 +28,22 @@ public class MortalityLogic : InterfaceLogicBase
 
     public void TakeDamage(IMortal mortal)
     {
-        Destroy(mortal.GetGameObject());
         mortal.onTakeDamage.Invoke(mortal);
+        Die(mortal);
+    }
+
+    private void Die(IMortal mortal)
+    {
+        mortal.alive = false;
+        if (mortal.GetGameObject().TryGetComponent(out Rigidbody rb))
+            rb.constraints = RigidbodyConstraints.FreezeAll;
+        //Destroy(mortal.GetGameObject(), mortal.GetDecayTime());
     }
 }
 public interface IMortal : IAnimated
 {
+    bool alive { get; set; }
+    float GetDecayTime();
     MortalityEvent onTakeDamage { get; set; }
     AudioSource GetDamageAudio();
 }
