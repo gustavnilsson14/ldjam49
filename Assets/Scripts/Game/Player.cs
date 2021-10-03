@@ -9,7 +9,7 @@ public class Player : BehaviourBase,
     ISmokeBombCaster, 
     IPlatformCaster, 
     IMagicCaster,
-    IMortality
+    IMortal
 {
     public List<AxisMapping> axisMappings;
     public List<InputMapping> inputMappings;
@@ -21,6 +21,7 @@ public class Player : BehaviourBase,
     public float moveSpeedAir;
     public AudioSource jumpSound;
     public float castCooldown;
+    public AudioSource damageAudio;
 
     public bool isGrounded { get; set; }
 
@@ -53,4 +54,6 @@ public class Player : BehaviourBase,
     public AudioSource GetJumpSound() => jumpSound;
 
     public float GetCastCooldown() => castCooldown;
+
+    public AudioSource GetDamageAudio() => damageAudio;
 }

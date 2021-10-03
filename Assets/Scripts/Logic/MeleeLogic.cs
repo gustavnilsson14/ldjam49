@@ -31,10 +31,10 @@ public class MeleeLogic : InterfaceLogicBase
     private void OnTriggerEnterMelee(IBase newBase, Collider collider)
     {
         Debug.Log("melee!");
-        if (!BehaviourBase.GetBehaviourOfType<IMortality>(out BehaviourBase behaviourBase, collider.gameObject))
+        if (!BehaviourBase.GetBehaviourOfType<IMortal>(out BehaviourBase behaviourBase, collider.gameObject))
             return;
 
-        MortalityLogic.I.TakeDamage(behaviourBase as IMortality);
+        MortalityLogic.I.TakeDamage(behaviourBase as IMortal);
     }
 
 }
