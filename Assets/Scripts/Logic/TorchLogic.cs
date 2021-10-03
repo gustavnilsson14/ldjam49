@@ -62,15 +62,9 @@ public class TorchLogic : InterfaceLogicBase
         if (torchesLit.Count == 3)
         {
             victoryOverlay.Play("VictoryOverlay");
-            StartCoroutine(NextLevel());
             return;
         }
         StartCoroutine(NotBusyAnymore(torchLighter));
-    }
-
-    private IEnumerator NextLevel()
-    {
-        
     }
 
     private IEnumerator NotBusyAnymore(ITorchLighter torchLighter)

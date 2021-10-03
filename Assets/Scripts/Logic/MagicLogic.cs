@@ -31,7 +31,7 @@ public class MagicLogic : InterfaceLogicBase
         if (magicCaster == null)
             return;
 
-        magicCaster.onCastMagic = new MagicCastEvent(magicCaster,"Cast");
+        magicCaster.onCastMagic = new MagicCastEvent(magicCaster,"Cast", magicCaster.GetMagicAudio());
     }
 
     private void InitSmokeBombCaster(ISmokeBombCaster smokeBombCaster)
@@ -57,9 +57,9 @@ public class MagicLogic : InterfaceLogicBase
         if (!(magicCaster as IMover).GetGameObject().TryGetComponent<Rigidbody>(out Rigidbody rigidbody))
             return;
 
-        if ((magicCaster as IMover).isGrounded && rigidbody.velocity.x != 0 && (magicCaster is ISmokeBombCaster))
+        if ((magicCaster as IMover).isGrounded && (magicCaster is ISmokeBombCaster))
             CastSmokeBomb(magicCaster as ISmokeBombCaster);
-        if (!(magicCaster as IMover).isGrounded && rigidbody.velocity.x != 0 && (magicCaster is IPlatformCaster))
+        if (!(magicCaster as IMover).isGrounded && (magicCaster is IPlatformCaster))
             CastPlatform(magicCaster as IPlatformCaster);
     }
 
@@ -80,13 +80,14 @@ public class MagicLogic : InterfaceLogicBase
 public interface IMagicCaster : IAnimated
 {
     MagicCastEvent onCastMagic { get; set; }
+    AudioSource GetMagicAudio();
     float GetCastCooldown();
     float nextCast { get; set; }
 }
 
 public class MagicCastEvent : AnimationEvent<IMagicCaster>
 {
-    public MagicCastEvent(IBase b = null, string name = "default") : base(b, name)
+    public MagicCastEvent(IBase b = null, string name = "default", AudioSource audioSource = null) : base(b, name, audioSource)
     {
     }
     public override bool TryGetParameterType(out AnimatorControllerParameterType parameterType)

@@ -11,7 +11,9 @@ GameObject:
   - component: {fileID: 6601892047075024927}
   - component: {fileID: 2390719875939781206}
   - component: {fileID: 7358488048392422357}
-  - component: {fileID: 273572970447235669}
+  - component: {fileID: 1986107516}
+  - component: {fileID: 1986107515}
+  - component: {fileID: 390997448405020006}
   m_Layer: 0
   m_Name: Stone3
   m_TagString: Untagged
@@ -26,13 +28,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3067414048676508091}
-  m_LocalRotation: {x: 0.7071068, y: 0, z: -0, w: 0.7071067}
+  m_LocalRotation: {x: 0.7069834, y: 0, z: 0, w: 0.7072302}
   m_LocalPosition: {x: -3.4, y: -0.56, z: 6.25}
-  m_LocalScale: {x: 4.6287665, y: 4.6287665, z: 4.6287665}
+  m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 89.98, y: 0, z: 0}
 --- !u!33 &2390719875939781206
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -82,8 +84,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &273572970447235669
-MeshCollider:
+--- !u!65 &1986107516
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -92,7 +94,31 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 8654494679675762179, guid: b5557cf066839794080e66804456f950, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 0.4446972, y: 0.33899352, z: 0.37540853}
+  m_Center: {x: -0.054581642, y: -0.00555923, z: -0.034592394}
+--- !u!114 &1986107515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3067414048676508091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db3773b437f161943be543b19c722e8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &390997448405020006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3067414048676508091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b16015de01776409a7fa3679313cdd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effectPrefab: {fileID: 5590380157011452212, guid: a4b3b137adfd2ac41bd999324134e2d4, type: 3}

@@ -28,6 +28,7 @@ public class Player : BehaviourBase,
     public AudioSource jumpSound;
     public AudioSource landSound;
     public AudioSource torchLightSound;
+    public AudioSource magicSound;
 
     public bool isGrounded { get; set; }
     public JumpEvent onJump { get; set; }
@@ -71,4 +72,6 @@ public class Player : BehaviourBase,
     public AudioSource GetTorchLightAudio() => torchLightSound;
 
     public AudioSource GetLandSound() => landSound;
+
+    public AudioSource GetMagicAudio() => magicSound;
 }
