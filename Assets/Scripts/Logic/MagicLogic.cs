@@ -31,7 +31,7 @@ public class MagicLogic : InterfaceLogicBase
         if (magicCaster == null)
             return;
 
-        magicCaster.onCastMagic = new MagicCastEvent();
+        magicCaster.onCastMagic = new MagicCastEvent(magicCaster,"Cast");
     }
 
     private void InitSmokeBombCaster(ISmokeBombCaster smokeBombCaster)
@@ -48,24 +48,28 @@ public class MagicLogic : InterfaceLogicBase
     }
     public void CastMagic(IMagicCaster magicCaster)
     {
-        if (!(magicCaster is  IMover))
+        if (Time.time < magicCaster.nextCast)
+            return;
+        magicCaster.nextCast = Time.time + magicCaster.GetCastCooldown();
+        magicCaster.onCastMagic.Invoke(magicCaster);
+        if (!(magicCaster is IMover))
             return;
         if (!(magicCaster as IMover).GetGameObject().TryGetComponent<Rigidbody>(out Rigidbody rigidbody))
             return;
 
         if ((magicCaster as IMover).isGrounded && rigidbody.velocity.x != 0 && (magicCaster is ISmokeBombCaster))
-        {
             CastSmokeBomb(magicCaster as ISmokeBombCaster);
-        }
         if (!(magicCaster as IMover).isGrounded && rigidbody.velocity.x != 0 && (magicCaster is IPlatformCaster))
-        {
             CastPlatform(magicCaster as IPlatformCaster);
-        }
     }
 
     public void CastSmokeBomb(ISmokeBombCaster smokeBombCaster)
     {
-        PrefabFactory.I.Create(smokeBombPrefab, null, smokeBombCaster.GetGameObject().transform);
+        if (!(smokeBombCaster is IMover))
+            return;
+        if (!(smokeBombCaster as IMover).GetGameObject().TryGetComponent<Rigidbody>(out Rigidbody rigidbody))
+            return;
+        PrefabFactory.I.Create(smokeBombPrefab, null, smokeBombCaster.GetGameObject().transform.position + rigidbody.velocity.normalized);
     }
 
     public void CastPlatform(IPlatformCaster platformCaster)
@@ -76,12 +80,19 @@ public class MagicLogic : InterfaceLogicBase
 public interface IMagicCaster : IAnimated
 {
     MagicCastEvent onCastMagic { get; set; }
+    float GetCastCooldown();
+    float nextCast { get; set; }
 }
 
 public class MagicCastEvent : AnimationEvent<IMagicCaster>
 {
     public MagicCastEvent(IBase b = null, string name = "default") : base(b, name)
     {
+    }
+    public override bool TryGetParameterType(out AnimatorControllerParameterType parameterType)
+    {
+        parameterType = AnimatorControllerParameterType.Trigger;
+        return true;
     }
 }
 
