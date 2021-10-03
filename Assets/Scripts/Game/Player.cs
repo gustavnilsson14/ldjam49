@@ -9,7 +9,8 @@ public class Player : BehaviourBase,
     ISmokeBombCaster, 
     IPlatformCaster, 
     IMagicCaster,
-    IMortal
+    IMortal,
+    ITorchLighter
 {
     public List<AxisMapping> axisMappings;
     public List<InputMapping> inputMappings;
@@ -25,7 +26,8 @@ public class Player : BehaviourBase,
 
     public AudioSource damageSound;
     public AudioSource jumpSound;
-    
+    public AudioSource torchLightSound;
+
     public bool isGrounded { get; set; }
     public JumpEvent onJump { get; set; }
     public Animator animator { get; set; }
@@ -44,6 +46,8 @@ public class Player : BehaviourBase,
     public MortalityEvent onTakeDamage { get; set; }
     public float nextCast { get; set; }
     public bool alive { get; set; }
+    public TorchLighterEvent onLightTorch { get; set; }
+    public TorchLighterEvent onStopLightTorch { get; set; }
 
     public float GetSlopeLimit() => slopeLimit;
     public float GetMoveSpeed() => moveSpeed;
@@ -62,4 +66,5 @@ public class Player : BehaviourBase,
 
     public float GetDecayTime() => decayTime;
 
+    public AudioSource GetTorchLightAudio() => torchLightSound;
 }
