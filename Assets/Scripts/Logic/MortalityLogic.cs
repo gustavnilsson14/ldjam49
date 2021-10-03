@@ -38,7 +38,7 @@ public interface IMortal : IAnimated
 }
 public class MortalityEvent : AnimationEvent<IMortal>
 {
-    public MortalityEvent(IBase b = null, string name = "default") : base(b, name)
+    public MortalityEvent(IBase b = null, string name = "default", AudioSource audioSource = null) : base(b, name, audioSource)
     {
     }
     public override bool TryGetParameterType(out AnimatorControllerParameterType parameterType)
