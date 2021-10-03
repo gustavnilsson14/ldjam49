@@ -8,7 +8,7 @@ public class MortalityLogic : InterfaceLogicBase
     protected override void OnInstantiate(GameObject newInstance, IBase newBase)
     {
         base.OnInstantiate(newInstance, newBase);
-        InitMortality(newBase as IMortality);
+        InitMortality(newBase as IMortal);
     }
 
 
@@ -17,29 +17,34 @@ public class MortalityLogic : InterfaceLogicBase
         base.OnRegisterInternalListeners(newInstance, newBase);
     }
 
-    private void InitMortality(IMortality mortality)
+    private void InitMortality(IMortal mortal)
     {
-        if (mortality == null)
+        if (mortal == null)
             return;
 
-        mortality.onTakeDamage = new MortalityEvent();
+        mortal.onTakeDamage = new MortalityEvent(mortal, "Damage", mortal.GetDamageAudio());
     }
 
-    public void TakeDamage(IMortality mortality)
+    public void TakeDamage(IMortal mortal)
     {
-        Debug.Log("take dmg");
-        Destroy(mortality.GetGameObject());
-
+        Destroy(mortal.GetGameObject());
+        mortal.onTakeDamage.Invoke(mortal);
     }
 }
-public interface IMortality : IAnimated
+public interface IMortal : IAnimated
 {
     MortalityEvent onTakeDamage { get; set; }
+    AudioSource GetDamageAudio();
 }
-public class MortalityEvent : AnimationEvent<IMortality>
+public class MortalityEvent : AnimationEvent<IMortal>
 {
     public MortalityEvent(IBase b = null, string name = "default") : base(b, name)
     {
+    }
+    public override bool TryGetParameterType(out AnimatorControllerParameterType parameterType)
+    {
+        parameterType = AnimatorControllerParameterType.Trigger;
+        return true;
     }
 }
 
