@@ -51,6 +51,9 @@ public class ExplosiveLogic : InterfaceLogicBase
 
         foreach (Collider collider in hitColliders)
         {
+            if(BehaviourBase.GetBehaviourOfType<IExplodable>(out BehaviourBase behaviour, collider.gameObject))
+                DestoryOnExplode(behaviour as IExplodable);
+            
             if (!collider.TryGetComponent<Rigidbody>(out Rigidbody rigidbody))
                 continue;
             rigidbody.AddExplosionForce(explosive.GetPower(), explosive.GetGameObject().transform.position, explosive.GetRadius(), 1.0f);
@@ -58,6 +61,15 @@ public class ExplosiveLogic : InterfaceLogicBase
         explosive.exploded = true;
         Destroy(explosive.GetGameObject());
     }
+
+    public void DestoryOnExplode(IExplodable explodable)
+    {
+        Destroy(explodable.GetGameObject());
+    }
+
+}
+public interface IExplodable : IAnimated
+{
 
 }
 public interface IExplosive : IAnimated
