@@ -13,6 +13,7 @@ public class PrefabFactory : InterfaceLogicBase
 
     protected override void PostStart()
     {
+        Debug.Log("PostStart");
         GameObject.FindObjectsOfType(typeof(GameObject)).ToList().ForEach(x => StartCoroutine(RegisterNewInstance(x as GameObject)));
     }
 

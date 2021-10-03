@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DeathOverlay : MonoBehaviour
 {
@@ -10,15 +11,14 @@ public class DeathOverlay : MonoBehaviour
     void Start()
     {
         StartCoroutine(DeathListener());
-        
     }
 
     private IEnumerator DeathListener()
     {
-        yield return 0;
-        yield return 0;
+        yield return new WaitForSeconds(1);
         if (!character.TryGetComponent<IMortal>(out IMortal mortal))
             yield break;
+        
         mortal.onTakeDamage.AddListener(ShowOverlay);
     }
 
@@ -27,5 +27,12 @@ public class DeathOverlay : MonoBehaviour
         if (!TryGetComponent(out Animator animator))
             return;
         animator.Play("DeathOverlay");
+        StartCoroutine(RestartGame());
+    }
+
+    private IEnumerator RestartGame()
+    {
+        yield return new WaitForSeconds(5);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
