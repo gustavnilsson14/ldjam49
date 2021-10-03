@@ -75,6 +75,8 @@ public class MoveLogic : InterfaceLogicBase
     {
         if (!MortalityLogic.I.CheckMortal(mover))
             return;
+        if (!TorchLogic.I.CheckLighterBusy(mover))
+            return;
         if (!mover.GetGameObject().TryGetComponent<Rigidbody>(out Rigidbody rigidbody))
             return;
         if (!mover.isGrounded)

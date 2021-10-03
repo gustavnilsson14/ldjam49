@@ -32,7 +32,9 @@ public class TorchLogic : InterfaceLogicBase
             return;
         torchLighter.onLightTorch = new TorchLighterEvent(torchLighter, "TorchLight", torchLighter.GetTorchLightAudio());
         torchLighter.onStopLightTorch = new TorchLighterEvent(torchLighter, "StopTorchLight");
+        torchLighter.busyLighting = false;
     }
+
 
     protected override void UnRegister(IBase b)
     {
@@ -52,6 +54,15 @@ public class TorchLogic : InterfaceLogicBase
         torch.onTorchLit.Invoke(torch);
         torchLighter.onLightTorch.Invoke(torchLighter, torch);
         torchesLit.Add(torch);
+        torchLighter.busyLighting = true;
+        StartCoroutine(NotBusyAnymore(torchLighter));
+    }
+
+    private IEnumerator NotBusyAnymore(ITorchLighter torchLighter)
+    {
+        torchLighter.GetGameObject().GetComponent<Rigidbody>().velocity = Vector3.zero;
+        yield return new WaitForSeconds(1);
+        torchLighter.busyLighting = false;
     }
 
     private void ExitedTorchZone(IBase arg0, Collider arg1)
@@ -67,6 +78,12 @@ public class TorchLogic : InterfaceLogicBase
     {
         base.OnRegisterInternalListeners(newInstance, newBase);
     }
+
+    public bool CheckLighterBusy(IBase ibase) {
+        if (!(ibase is ITorchLighter))
+            return true;
+        return !(ibase as ITorchLighter).busyLighting;
+    }
 }
 public interface ITorch : IBase
 {
@@ -75,6 +92,7 @@ public interface ITorch : IBase
 }
 public interface ITorchLighter : IBase
 {
+    bool busyLighting { get; set; }
     TorchLighterEvent onLightTorch { get; set; }
     TorchLighterEvent onStopLightTorch { get; set; }
     AudioSource GetTorchLightAudio();

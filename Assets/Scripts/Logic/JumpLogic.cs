@@ -41,6 +41,8 @@ public class JumpLogic : InterfaceLogicBase
             return;
         if (!MortalityLogic.I.CheckMortal(jumper))
             return;
+        if (!TorchLogic.I.CheckLighterBusy(jumper))
+            return;
         rigidbody.AddForce(transform.up * jumper.GetJumpSpeed(), ForceMode.VelocityChange);
         jumper.onJump.Invoke(jumper);
     }

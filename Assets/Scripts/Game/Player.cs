@@ -49,6 +49,7 @@ public class Player : BehaviourBase,
     public bool alive { get; set; }
     public TorchLighterEvent onLightTorch { get; set; }
     public TorchLighterEvent onStopLightTorch { get; set; }
+    public bool busyLighting { get; set; }
 
     public float GetSlopeLimit() => slopeLimit;
     public float GetMoveSpeed() => moveSpeed;
