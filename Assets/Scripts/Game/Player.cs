@@ -20,6 +20,7 @@ public class Player : BehaviourBase,
     public float jumpSpeed;
     public float moveSpeedAir;
     public AudioSource jumpSound;
+    public float castCooldown;
 
     public bool isGrounded { get; set; }
 
@@ -38,6 +39,7 @@ public class Player : BehaviourBase,
     public PlatformCastEvent onCastPlatform { get; set; }
     public MagicCastEvent onCastMagic { get; set; }
     public MortalityEvent onTakeDamage { get; set; }
+    public float nextCast { get; set; }
 
     public float GetSlopeLimit() => slopeLimit;
     public float GetMoveSpeed() => moveSpeed;
@@ -50,4 +52,5 @@ public class Player : BehaviourBase,
 
     public AudioSource GetJumpSound() => jumpSound;
 
+    public float GetCastCooldown() => castCooldown;
 }
