@@ -8,6 +8,7 @@ public class TorchLogic : InterfaceLogicBase
     public static TorchLogic I;
 
     public Animator torchOverlay;
+    public Animator victoryOverlay;
 
     public List<ITorch> torches = new List<ITorch>();
     public List<ITorch> torchesLit = new List<ITorch>();
@@ -58,7 +59,18 @@ public class TorchLogic : InterfaceLogicBase
         torchesLit.Add(torch);
         torchOverlay.Play($"{torchesLit.Count}Torches");
         torchLighter.busyLighting = true;
+        if (torchesLit.Count == 3)
+        {
+            victoryOverlay.Play("VictoryOverlay");
+            StartCoroutine(NextLevel());
+            return;
+        }
         StartCoroutine(NotBusyAnymore(torchLighter));
+    }
+
+    private IEnumerator NextLevel()
+    {
+        
     }
 
     private IEnumerator NotBusyAnymore(ITorchLighter torchLighter)
